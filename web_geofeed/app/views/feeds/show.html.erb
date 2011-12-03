@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>University:</b>
+  <%= @feed.university %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @feed.address %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @feed.price %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%= @feed.rank %>
+</p>
+
+<p>
+  <b>Career:</b>
+  <%= @feed.career %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @feed.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @feed.longitude %>
+</p>
+
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
