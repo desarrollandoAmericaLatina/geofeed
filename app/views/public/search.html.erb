@@ -81,8 +81,8 @@ $(function(){
         <th title="Promedio Puntaje Prueba Selección Univesitaria"><%= sort_link @search, :promedio_psu, "Promedio PSU" %></th>
         <th title="Promedio Notas Enseñanza Media"><%= sort_link @search, :promedio_nem, "Promedio NEM" %> </th>
         <th title="Cantidad de Titulados Anualmente"><%= sort_link @search, :n_titulados, "Número de Titulados" %></th>
-        <th title="Duración segun malla curricular"><%= sort_link @search, :duracion_esperada , "Duracion Esperada"%> </th>
-        <th title="Duracion Real"><%= sort_link @search, :duracion_real, "Duracion Real" %> </th>
+        <th title="Duración según malla curricular"><%= sort_link @search, :duracion_esperada , "Duracion Esperada"%> </th>
+        <th title="Duracion Efectiva según datos históricos"><%= sort_link @search, :duracion_real, "Duracion Real" %> </th>
         <th title="Costo anual"><%= sort_link @search, :promedio_arancel, "Promedio Arancel" %></th>
         <th title="Cantidad de años necesarios para pagar la carrera según la renta esperada"><%= sort_link @search, :payback %></th>
         <th class="top-right"> <%= link_to 'GeoFeed', '#geofeedimg' ,:class => 'fancy_box' %>
@@ -97,8 +97,8 @@ $(function(){
       <tr class="<%= cycle("even", "odd") %>">
         <td><%= career.institucion.titleize %></td>
         <td><%= career.carrera %></td>
-        <td><%= number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
-        <td><%= number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
+        <td><%= career.empleabilidad_primer_ano == 0? 'No hay datos' : number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
+        <td><%= career.empleabilidad_segundo_ano == 0? 'No hay datos' : number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
         <td><%= career.promedio_psu %></td>
         <td><%= number_with_delimiter(career.promedio_nem, :separator => ",") %></td>
         <td><%= career.n_titulados %></td>
