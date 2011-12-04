@@ -8,10 +8,7 @@ gem 'rails', '3.1.3'
 gem 'sqlite3'
 gem "meta_search"#, :git => "git://github.com/ernie/meta_search.git" # Track git repo'
 gem 'fastercsv'
-
-group :production do
- gem 'pg'
-end
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
