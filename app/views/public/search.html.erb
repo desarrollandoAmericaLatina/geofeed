@@ -25,10 +25,12 @@ $(function(){
 </script>
 
 <div id="search">
+  
+  <img id="logo" src="/assets/logo-media-decision.jpg" alt="Media Decisión!"/>
   <%= form_for @search, :url => search_path, :html => {:method => :get} do |f| %>
-  <%= f.label :institucion , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
+  <%= f.label 'Institución', :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
   <%= f.collection_select :institucion_equals, @instituciones, :to_s, :to_s, :include_blank => true  %><br />
-  <%= f.label :tipo_institucion , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
+  <%= f.label 'Tipo Institución', :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
   <%= f.collection_select :tipo_institucion_equals, @tipos_instituciones, :to_s, :to_s, :include_blank => true  %><br />
   <%= f.label :carrera , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
   <%= f.collection_select :carrera_equals, @carreras, :to_s, :to_s, :include_blank => true  %><br />
@@ -81,8 +83,8 @@ $(function(){
         <th title="Promedio Puntaje Prueba Selección Univesitaria"><%= sort_link @search, :promedio_psu, "Promedio PSU" %></th>
         <th title="Promedio Notas Enseñanza Media"><%= sort_link @search, :promedio_nem, "Promedio NEM" %> </th>
         <th title="Cantidad de Titulados Anualmente"><%= sort_link @search, :n_titulados, "Número de Titulados" %></th>
-        <th title="Duración según malla curricular"><%= sort_link @search, :duracion_esperada , "Duracion Esperada"%> </th>
-        <th title="Duracion Efectiva según datos históricos"><%= sort_link @search, :duracion_real, "Duracion Real" %> </th>
+        <th title="Duración según malla curricular [semestres]"><%= sort_link @search, :duracion_esperada , "Duración Esperada"%> </th>
+        <th title="Duración Efectiva según datos históricos [semestres]"><%= sort_link @search, :duracion_real, "Duración Real" %> </th>
         <th title="Costo anual"><%= sort_link @search, :promedio_arancel, "Promedio Arancel" %></th>
         <th title="Cantidad de años necesarios para pagar la carrera según la renta esperada"><%= sort_link @search, :payback %></th>
         <th class="top-right"> <%= link_to 'GeoFeed', '#geofeedimg' ,:class => 'fancy_box' %>
