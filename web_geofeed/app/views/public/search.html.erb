@@ -1,3 +1,21 @@
+<script type="text/javascript">
+
+  $(function(){
+    $('#search_promedio_arancel_greater_than, #search_promedio_arancel_less_than').click(function(){
+      current = $(this);
+      var min = $('#search_promedio_arancel_greater_than');
+      var max = $('#search_promedio_arancel_less_than');
+      other = (current.attr('id') == min.attr('id')) ? max : min;
+      if( parseInt(max.val()) < parseInt(min.val())) {
+        other.val(current.val());
+        other.next('span').text(other.val());
+      }
+      current.next('span').text(current.val());
+    });
+  })
+
+</script>
+
 <div id="search">
   <%= form_for @search, :url => search_path, :html => {:meliod => :get} do |f| %>
     <%= f.label :tipo_institucion_contains , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
@@ -9,12 +27,12 @@
     <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel entre:', :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;' %>
     <div class="range">
       <div>
-      <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>@max_range.to_s,:onchange=>'$("#arancel_gt_label").val(this.value);'} %>
-      <input type="text" disabled="true" value="" id="arancel_gt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt"/>
+        <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>@max_range.to_s} %>
+        <span><%= @search.promedio_arancel_greater_than %></span>
       </div>
       <div>
-      <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>@max_range.to_s,:onchange=>'$("#arancel_lt_label").val(this.value);'} %>
-      <input type="text" disabled="true" value="" id="arancel_lt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt" />
+        <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>@max_range.to_s} %>
+        <span><%= @search.promedio_arancel_less_than %></span>
       </div>
     </div>
     <%= f.submit "Buscar", :style=>"clear:both; margin-right: 200px;margin-top:20px; height: 24pt;" %>
