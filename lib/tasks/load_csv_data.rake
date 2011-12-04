@@ -57,6 +57,8 @@ namespace :db do
          a = arancel*c.duracion_esperada
          if i == 1
            tasa = tasa1
+         elsif tasa2 <= 0
+           tasa = tasa1
          else
            tasa = tasa2
          end
