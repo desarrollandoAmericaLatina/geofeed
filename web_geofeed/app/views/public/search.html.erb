@@ -1,17 +1,72 @@
 <div id="search">
-  <%= form_for @search, :url => search_path, :html => {:method => :get} do |f| %>
+  <%= form_for @search, :url => search_path, :html => {:meliod => :get} do |f| %>
     <%= f.label :tipo_institucion_contains %>
     <%= f.text_field :tipo_institucion_contains %><br />
-    <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel' %>
+    
     
     <!-- etc... -->
-    <div id="range">
-      <input name="form_range" id="form_range" type="range" min="1" max="10" step=".5" value="5" > 
-      <input name="form_range" id="form_range" type="range" min="1" max="10" step=".5" value="5" > 
+    <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel' %>
+    <div class="range">
+      <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>1000} %>
+      <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>1000} %><br />
     </div>
     <%= f.submit "Buscar" %>
   <% end %>  
 </div>
 <div id="results">
-  
+  <h1>Listing careers</h1>
+    <ul>
+      <!-- <li>Tipo institucion</li> -->
+      <!-- <li>Carrera</li> -->
+      <li>Institucion</li>
+      <!-- <li>Areas conocimiento</li> -->
+      <li>Empleabilidad primer ano</li>
+      <li>Empleabilidad segundo ano</li>
+      <li>Region mayor numero titulados</li>
+      <li>N matriculados primer ano</li>
+      <li>N matriculados total</li>
+      <!-- <li>Estudiantes municipales</li> -->
+      <!-- <li>Estudiantes particular subvencionado</li> -->
+      <li>Estudiantes particular pagado</li>
+      <li>Porcentaje estudiantes psu</li>
+      <li>Promedio psu</li>
+      <li>Promedio nem</li>
+      <li>Tasa retencion primer ano</li>
+      <li>Tasa retencion segundo ano</li>
+      <li>N titulados</li>
+      <li>Duracion esperada</li>
+      <li>Duracion real</li>
+      <li>Promedio arancel</li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+  <% @careers.each do |career| %>
+    <ul>
+      <!-- <li><%= career.tipo_institucion %></li> -->
+      <!-- <li><%= career.carrera %></li> -->
+      <li><%= career.institucion %></li>
+      <!-- <li><%= career.areas_conocimiento %></li> -->
+      <li><%= career.empleabilidad_primer_ano %></li>
+      <li><%= career.empleabilidad_segundo_ano %></li>
+      <li><%= career.region_mayor_numero_titulados %></li>
+      <li><%= career.n_matriculados_primer_ano %></li>
+      <li><%= career.n_matriculados_total %></li>
+      <!-- <li><%= career.estudiantes_municipales %></li> -->
+      <!-- <li><%= career.estudiantes_particular_subvencionado %></li> -->
+      <li><%= career.estudiantes_particular_pagado %></li>
+      <li><%= career.porcentaje_estudiantes_psu %></li>
+      <li><%= career.promedio_psu %></li>
+      <li><%= career.promedio_nem %></li>
+      <li><%= career.tasa_retencion_primer_ano %></li>
+      <li><%= career.tasa_retencion_segundo_ano %></li>
+      <li><%= career.n_titulados %></li>
+      <li><%= career.duracion_esperada %></li>
+      <li><%= career.duracion_real %></li>
+      <li><%= career.promedio_arancel %></li>
+      
+    </ul>
+  <% end %>
+
 </div>

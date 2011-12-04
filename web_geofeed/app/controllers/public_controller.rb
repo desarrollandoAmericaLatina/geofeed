@@ -6,6 +6,7 @@ class PublicController < ApplicationController
   def search
        @search = Career.search(params[:search])
        @careers = @search.all
+       Rails.logger.info "#{@careers.count} carreras encontradas..."
 
     
     respond_to do |format|
