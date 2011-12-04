@@ -22,7 +22,6 @@
 </div>
 <div id="results">
   <h1></h1>
-
   <table id="rounded-corner">
     <thead>
     <tr>
@@ -47,7 +46,8 @@
       <th><%= sort_link @search, :n_titulados %></th>
       <th><%= sort_link @search, :duracion_esperada %> </th>
       <th><%= sort_link @search, :duracion_real %> </th>
-      <th class="top-right"><%= sort_link @search, :promedio_arancel %></th>
+      <th><%= sort_link @search, :promedio_arancel %></th>
+      <th class="top-right"> <%= link_to 'GeoFeed', @map_feed_url %> </th>
     </tr>
     </thead>
   <% @careers.each do |career| %>
