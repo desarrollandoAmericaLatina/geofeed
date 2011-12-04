@@ -26,7 +26,7 @@ $(function(){
   <%= form_for @search, :url => search_path, :html => {:method => :get} do |f| %>
   <%= f.label :tipo_institucion_contains , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
   <%= f.text_field :tipo_institucion_contains %><br />
-
+  <%= f.hidden_field :meta_sort %>
 
   <!-- etc... -->
 
