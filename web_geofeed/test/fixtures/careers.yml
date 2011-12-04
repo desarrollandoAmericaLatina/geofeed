@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tipo_institucion: MyString
+  carrera: MyString
+  institucion: MyString
+  areas_conocimiento: MyString
+  empleabilidad_primer_ano: MyString
+  empleabilidad_segundo_ano: MyString
+  region_mayor_numero_titulados: MyString
+  n_matriculados_primer_ano: MyString
+  n_matriculados_total: MyString
+  estudiantes_municipales: MyString
+  estudiantes_particular_subvencionado: MyString
+  estudiantes_particular_pagado: MyString
+  porcentaje_estudiantes_psu: MyString
+  promedio_psu: MyString
+  promedio_nem: MyString
+  tasa_retencion_primer_ano: MyString
+  tasa_retencion_segundo_ano: MyString
+  n_titulados: MyString
+  duracion_esperada: MyString
+  duracion_real: MyString
+  promedio_arancel: MyString
+
+two:
+  tipo_institucion: MyString
+  carrera: MyString
+  institucion: MyString
+  areas_conocimiento: MyString
+  empleabilidad_primer_ano: MyString
+  empleabilidad_segundo_ano: MyString
+  region_mayor_numero_titulados: MyString
+  n_matriculados_primer_ano: MyString
+  n_matriculados_total: MyString
+  estudiantes_municipales: MyString
+  estudiantes_particular_subvencionado: MyString
+  estudiantes_particular_pagado: MyString
+  porcentaje_estudiantes_psu: MyString
+  promedio_psu: MyString
+  promedio_nem: MyString
+  tasa_retencion_primer_ano: MyString
+  tasa_retencion_segundo_ano: MyString
+  n_titulados: MyString
+  duracion_esperada: MyString
+  duracion_real: MyString
+  promedio_arancel: MyString

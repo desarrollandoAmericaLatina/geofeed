@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FeedTest < ActiveSupport::TestCase
+class CareerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
