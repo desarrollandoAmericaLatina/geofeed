@@ -17,6 +17,8 @@ $(function(){
     current = $(this);
     current.next('span').text(current.val());
   });
+  
+  
 
 })
 
@@ -63,7 +65,12 @@ $(function(){
  <% end %>
 </div>
 <div id="results">
-  <h1></h1>
+  <% if @tip %>
+  <div id="notice">
+    <p><strong>Tip:</strong> Puedes ordenar los resultados haciendo click sobre los títulos de cada columna</p> 
+  </div>  
+  <% end %>
+
   <table id="rounded-corner">
     <thead>
       <tr>
