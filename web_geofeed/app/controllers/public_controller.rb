@@ -15,8 +15,8 @@ class PublicController < ApplicationController
        end
        @map_feed_url += (markers + "&mobile=true&sensor=false")
        params[:search] ||= Hash.new
-       params[:search][:promedio_arancel_less_than] ||= @max_range
-       params[:search][:promedio_arancel_greater_than] ||= @min_range
+       @search.promedio_arancel_greater_than ||= @min_range
+       @search.promedio_arancel_less_than ||= @max_range
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @careers }
