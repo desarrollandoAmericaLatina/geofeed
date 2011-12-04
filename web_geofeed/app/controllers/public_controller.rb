@@ -3,6 +3,8 @@ class PublicController < ApplicationController
   
 
   def search
+       @tipos_instituciones = [] + Career.all.collect(&:tipo_institucion).uniq
+       @carreras = [] + Career.all.collect{|c|c.carrera.truncate(43)}.uniq
        @search = Career.search(params[:search])
        @careers = @search.all.shift(10)
        Rails.logger.info "#{@careers.count} carreras encontradas..."
