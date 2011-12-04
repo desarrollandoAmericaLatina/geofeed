@@ -1,8 +1,7 @@
 class PublicController < ApplicationController
   protect_from_forgery
+  
 
-  # GET /careers
-  # GET /careers.json
   def search
        @search = Career.search(params[:search])
        @careers = @search.all
@@ -17,4 +16,6 @@ class PublicController < ApplicationController
     end
   end
   
+ 
+ 
 end

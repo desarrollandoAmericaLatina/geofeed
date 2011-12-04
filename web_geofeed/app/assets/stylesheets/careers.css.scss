@@ -10,19 +10,13 @@ body {
 		float:left;
 	}
 	div#results{
-		float:right;
-		width:70%;
-		table tr.odd {
-			background: #CCC;
-		}
-		
-		
+		margin-left:300px;
 	}
 	div#search {
 		position:fixed;
 		height:100%;
 		padding: 1em;
-		width: 25%;
+		width: 300px;
 		background: white;
 		border-right: 1px solid grey;
 		form {
@@ -43,16 +37,17 @@ body {
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	margin: 45px;
+	margin-left:70px;
+/*	margin: 45px;*/
 	width: 480px;
 	text-align: left;
 	border-collapse: collapse;
 }
-#rounded-corner thead th.rounded-company
+#rounded-corner thead th.top-left
 {
 	background: #b9c9fe url('table-images/left.png') left -1px no-repeat;
 }
-#rounded-corner thead th.rounded-q4
+#rounded-corner thead th.top-right
 {
 	background: #b9c9fe url('table-images/right.png') right -1px no-repeat;
 }
@@ -83,6 +78,4 @@ body {
 {
 	background: #d0dafd;
 }
-
-
 
