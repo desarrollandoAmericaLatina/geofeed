@@ -2,7 +2,8 @@ class CareersController < ApplicationController
   # GET /careers
   # GET /careers.json
   def index
-    @careers = Career.all
+    @search = Career.search(params[:search])
+    @careers = @search.all   # load all matching records
 
     respond_to do |format|
       format.html # index.html.erb

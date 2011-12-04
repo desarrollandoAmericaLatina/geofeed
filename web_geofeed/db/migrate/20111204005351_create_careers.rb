@@ -13,7 +13,7 @@ class CreateCareers < ActiveRecord::Migration
       t.string :estudiantes_municipales
       t.string :estudiantes_particular_subvencionado
       t.string :estudiantes_particular_pagado
-      t.float :porcentaje_estudiantes_psu
+      t.string :porcentaje_estudiantes_psu
       t.integer :promedio_psu
       t.float :promedio_nem
       t.float :tasa_retencion_primer_ano
