@@ -9,6 +9,10 @@ gem 'sqlite3'
 gem "meta_search"#, :git => "git://github.com/ernie/meta_search.git" # Track git repo'
 gem 'fastercsv'
 
+group :production do
+ gem 'activerecord-postgresql-adapter'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
