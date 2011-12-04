@@ -1,0 +1,63 @@
+<h1>Listing careers</h1>
+
+<table>
+  <tr>
+    <th>Tipo institucion</th>
+    <th>Carrera</th>
+    <th>Institucion</th>
+    <th>Areas conocimiento</th>
+    <th>Empleabilidad primer ano</th>
+    <th>Empleabilidad segundo ano</th>
+    <th>Region mayor numero titulados</th>
+    <th>N matriculados primer ano</th>
+    <th>N matriculados total</th>
+    <th>Estudiantes municipales</th>
+    <th>Estudiantes particular subvencionado</th>
+    <th>Estudiantes particular pagado</th>
+    <th>Porcentaje estudiantes psu</th>
+    <th>Promedio psu</th>
+    <th>Promedio nem</th>
+    <th>Tasa retencion primer ano</th>
+    <th>Tasa retencion segundo ano</th>
+    <th>N titulados</th>
+    <th>Duracion esperada</th>
+    <th>Duracion real</th>
+    <th>Promedio arancel</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @careers.each do |career| %>
+  <tr>
+    <td><%= career.tipo_institucion %></td>
+    <td><%= career.carrera %></td>
+    <td><%= career.institucion %></td>
+    <td><%= career.areas_conocimiento %></td>
+    <td><%= career.empleabilidad_primer_ano %></td>
+    <td><%= career.empleabilidad_segundo_ano %></td>
+    <td><%= career.region_mayor_numero_titulados %></td>
+    <td><%= career.n_matriculados_primer_ano %></td>
+    <td><%= career.n_matriculados_total %></td>
+    <td><%= career.estudiantes_municipales %></td>
+    <td><%= career.estudiantes_particular_subvencionado %></td>
+    <td><%= career.estudiantes_particular_pagado %></td>
+    <td><%= career.porcentaje_estudiantes_psu %></td>
+    <td><%= career.promedio_psu %></td>
+    <td><%= career.promedio_nem %></td>
+    <td><%= career.tasa_retencion_primer_ano %></td>
+    <td><%= career.tasa_retencion_segundo_ano %></td>
+    <td><%= career.n_titulados %></td>
+    <td><%= career.duracion_esperada %></td>
+    <td><%= career.duracion_real %></td>
+    <td><%= career.promedio_arancel %></td>
+    <td><%= link_to 'Show', career %></td>
+    <td><%= link_to 'Edit', edit_career_path(career) %></td>
+    <td><%= link_to 'Destroy', career, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Career', new_career_path %>
