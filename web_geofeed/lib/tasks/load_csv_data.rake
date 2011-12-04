@@ -173,10 +173,9 @@ namespace :db do
         headers = row.collect { |r| r.downcase.to_sym }.compact
         puts headers.collect { |h| "#{h}:string"}.join(" ")
       else
-        puts counter
         career = Career.new
         headers.each_with_index do |h,i|
-          v = row[i].force_encoding('UTF-8')
+          v = row[i].force_encoding('UTF-8').gsub(".","")
           career.send((h.to_s + "=").to_sym, v)
         end
         career.save!
