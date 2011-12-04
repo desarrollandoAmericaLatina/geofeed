@@ -168,14 +168,19 @@ namespace :db do
       csv = CSV
     end
     headers =[]
-    csv.foreach("data2.csv") do |row|
+    csv.foreach("data3.csv") do |row|
       if counter == 1
         headers = row.collect { |r| r.downcase.to_sym }.compact
         puts headers.collect { |h| "#{h}:string"}.join(" ")
       else
         career = Career.new
         headers.each_with_index do |h,i|
-          v = row[i].force_encoding('UTF-8').gsub(".","")
+          puts "row #{i} #{row[i]}"
+          if row[i].nil?
+            v = 0
+          else  
+            v = row[i].force_encoding('UTF-8').gsub(".","")
+          end
           career.send((h.to_s + "=").to_sym, v)
         end
         career.save!

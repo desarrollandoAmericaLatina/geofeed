@@ -39,7 +39,8 @@
       <th><%= sort_link @search, :n_titulados %></th>
       <th><%= sort_link @search, :duracion_esperada %></th>
       <th><%= sort_link @search, :duracion_real %></th>
-      <th class="top-right"><%= sort_link @search, :promedio_arancel %></th>
+      <th><%= sort_link @search, :promedio_arancel %></th>
+      <th class="top-right">&nbsp;</th>
     </tr>
     </thead>
   <% @careers.each do |career| %>
@@ -65,6 +66,7 @@
       <td><%= career.duracion_esperada %></td>
       <td><%= career.duracion_real %></td>
       <td><%= career.promedio_arancel %></td>
+      <td><%= link_to 'Mapa', "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|#{career.direccion_casa_central}&mobile=true&sensor=false" %></td>
     </tr>
   <% end %>
   </table>
