@@ -47,7 +47,12 @@
       <th><%= sort_link @search, :duracion_esperada %> </th>
       <th><%= sort_link @search, :duracion_real %> </th>
       <th><%= sort_link @search, :promedio_arancel %></th>
-      <th class="top-right"> <%= link_to 'GeoFeed', @map_feed_url %> </th>
+      <th class="top-right"> <%= link_to 'GeoFeed', '#geofeedimg' ,:class => 'fancy_box' %> 
+                                 <div style="display:none">
+                                   <div id="geofeedimg">
+                                    <%= image_tag @map_feed_url  %>
+                                  </div>
+                                 </div> </th>
     </tr>
     </thead>
   <% @careers.each do |career| %>
@@ -73,7 +78,14 @@
       <td><%= number_with_precision(career.duracion_esperada,:precision => 0) %></td>
       <td><%= career.duracion_real %></td>
       <td><%= number_to_currency(career.promedio_arancel, :delimiter => ".", :precision => 0) %></td>
-      <td><%= link_to 'Mapa', "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|#{career.direccion_casa_central}&mobile=true&sensor=false" %></td>
+      <td><%= link_to 'Mapa', "#geofeedrow#{career.id}", :class=> 'fancy_box' %>
+                                 <div style="display:none">
+                                   <div id="geofeedrow<%= career.id%>">
+                                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|#{career.direccion_casa_central}&mobile=true&sensor=false"  %>
+                                  </div>
+                                 </div>
+
+</td>
     </tr>
   <% end %>
   </table>

@@ -19,7 +19,6 @@ class PublicController < ApplicationController
       format.json { render json: @careers }
     end
   end
-  
- 
+
  
 end
