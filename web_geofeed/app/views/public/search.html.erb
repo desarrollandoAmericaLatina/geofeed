@@ -37,35 +37,34 @@
       <th><%= sort_link @search, :tasa_retencion_primer_ano %></th>
       <th><%= sort_link @search, :tasa_retencion_segundo_ano %></th>
       <th><%= sort_link @search, :n_titulados %></th>
-      <th><%= sort_link @search, :duracion_esperada %></th>
-      <th><%= sort_link @search, :duracion_real %></th>
-      <th><%= sort_link @search, :promedio_arancel %></th>
-      <th class="top-right">&nbsp;</th>
+      <th><%= sort_link @search, :duracion_esperada %> </th>
+      <th><%= sort_link @search, :duracion_real %> </th>
+      <th class="top-right"><%= sort_link @search, :promedio_arancel %></th>
     </tr>
     </thead>
   <% @careers.each do |career| %>
     <tr class="<%= cycle("even", "odd") %>">
       <!-- <td><%= career.tipo_institucion %></td> -->
       <!-- <td><%= career.carrera %></td> -->
-      <td><%= career.institucion %></td>
+      <td><%= career.institucion.titleize %></td>
       <!-- <td><%= career.areas_conocimiento %></td> -->
-      <td><%= career.empleabilidad_primer_ano %></td>
-      <td><%= career.empleabilidad_segundo_ano %></td>
+      <td><%= number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
+      <td><%= number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
       <!-- <td><%= career.region_mayor_numero_titulados %></td> -->
       <!-- <td><%= career.n_matriculados_primer_ano %></td> -->
       <!-- <td><%= career.n_matriculados_total %></td> -->
       <!-- <td><%= career.estudiantes_municipales %></td> -->
       <!-- <td><%= career.estudiantes_particular_subvencionado %></td> -->
       <!-- <td><%= career.estudiantes_particular_pagado %></td> -->
-      <td><%= career.porcentaje_estudiantes_psu %></td>
+      <td><%= career.porcentaje_estudiantes_psu 	%></td>
       <td><%= career.promedio_psu %></td>
-      <td><%= career.promedio_nem %></td>
-      <td><%= career.tasa_retencion_primer_ano %></td>
-      <td><%= career.tasa_retencion_segundo_ano %></td>
+      <td><%= number_with_delimiter(career.promedio_nem, :separator => ",") %></td>
+      <td><%= number_to_percentage(career.tasa_retencion_primer_ano, :precision => 0) %></td>
+      <td><%= number_to_percentage(career.tasa_retencion_segundo_ano, :precision => 0) %></td>
       <td><%= career.n_titulados %></td>
-      <td><%= career.duracion_esperada %></td>
+      <td><%= number_with_precision(career.duracion_esperada,:precision => 0) %></td>
       <td><%= career.duracion_real %></td>
-      <td><%= career.promedio_arancel %></td>
+      <td><%= number_to_currency(career.promedio_arancel, :delimiter => ".", :precision => 0) %></td>
       <td><%= link_to 'Mapa', "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|#{career.direccion_casa_central}&mobile=true&sensor=false" %></td>
     </tr>
   <% end %>
