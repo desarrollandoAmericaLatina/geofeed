@@ -25,7 +25,7 @@ $(function(){
 <div id="search">
   <%= form_for @search, :url => search_path, :html => {:method => :get} do |f| %>
   <%= f.label :institucion , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
-  <%= f.text_field :institucion_contains %><br />
+  <%= f.collection_select :institucion_equals, @instituciones, :to_s, :to_s, :include_blank => true  %><br />
   <%= f.label :tipo_institucion , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
   <%= f.collection_select :tipo_institucion_equals, @tipos_instituciones, :to_s, :to_s, :include_blank => true  %><br />
   <%= f.label :carrera , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
@@ -56,7 +56,7 @@ $(function(){
 
 
   <%= f.submit "Buscar" , :style=>"height: 30px;"%>
-  <% end %>  
+  <% end %>
 </div>
 <div id="results">
   <h1></h1>
@@ -85,7 +85,8 @@ $(function(){
         <th><%= sort_link @search, :duracion_esperada %> </th>
         <th><%= sort_link @search, :duracion_real %> </th>
         <th><%= sort_link @search, :promedio_arancel %></th>
-        <th class="top-right"> <%= link_to 'GeoFeed', '#geofeedimg' ,:class => 'fancy_box' %> 
+        <th><%= sort_link @search, :payback %></th>
+        <th class="top-right"> <%= link_to 'GeoFeed', '#geofeedimg' ,:class => 'fancy_box' %>
           <div style="display:none">
             <div id="geofeedimg">
               <%= image_tag @map_feed_url  %>
@@ -116,6 +117,7 @@ $(function(){
         <td><%= number_with_precision(career.duracion_esperada,:precision => 0) %></td>
         <td><%= career.duracion_real %></td>
         <td><%= number_to_currency(career.promedio_arancel, :delimiter => ".", :precision => 0) %></td>
+        <td><%= career.payback %></td>
         <td><%= link_to 'Mapa', "#geofeedrow#{career.id}", :class=> 'fancy_box' %>
           <div style="display:none">
             <div id="geofeedrow<%= career.id%>">

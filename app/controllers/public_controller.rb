@@ -1,9 +1,10 @@
 class PublicController < ApplicationController
   protect_from_forgery
-  
+
 
   def search
        @tipos_instituciones = [] + Career.all.collect(&:tipo_institucion).uniq
+       @instituciones = [] + Career.all.collect{|c| c.institucion.truncate(39)}.uniq
        @carreras = [] + Career.all.collect{|c|c.carrera.truncate(43)}.uniq
        @search = Career.search(params[:search])
        @careers = @search.all.shift(10)
@@ -26,5 +27,5 @@ class PublicController < ApplicationController
     end
   end
 
- 
+
 end
