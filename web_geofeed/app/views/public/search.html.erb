@@ -1,16 +1,23 @@
 <div id="search">
   <%= form_for @search, :url => search_path, :html => {:meliod => :get} do |f| %>
-    <%= f.label :tipo_institucion_contains %>
+    <%= f.label :tipo_institucion_contains , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
     <%= f.text_field :tipo_institucion_contains %><br />
     
     
     <!-- etc... -->
-    <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel' %>
+    
+    <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel entre:', :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;' %>
     <div class="range">
-      <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>@max_range.to_s} %>
-      <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>@min_range.to_s} %><br />
+      <div>
+      <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>@max_range.to_s,:onchange=>'$("#arancel_gt_label").val(this.value);'} %>
+      <input type="text" disabled="true" value="" id="arancel_gt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt"/>
+      </div>
+      <div>
+      <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>@max_range.to_s,:onchange=>'$("#arancel_lt_label").val(this.value);'} %>
+      <input type="text" disabled="true" value="" id="arancel_lt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt" />
+      </div>
     </div>
-    <%= f.submit "Buscar" %>
+    <%= f.submit "Buscar", :style=>"clear:both; margin-right: 200px;margin-top:20px; height: 24pt;" %>
   <% end %>  
 </div>
 <div id="results">
@@ -23,6 +30,7 @@
       <!-- <th>Carrera</th> -->
       <th class="top-left"><%= sort_link @search, :institucion %></th>
       <!-- <th>Areas conocimiento</th> -->
+      <th><%= sort_link @search, :carrera %></th>
       <th><%= sort_link @search, :empleabilidad_primer_ano %></th>
       <th><%= sort_link @search, :empleabilidad_segundo_ano %></th>
       <!-- <th>Region mayor numero titulados</th> -->
@@ -35,7 +43,7 @@
       <th><%= sort_link @search, :promedio_psu %></th>
       <th><%= sort_link @search, :promedio_nem %></th>
       <th><%= sort_link @search, :tasa_retencion_primer_ano %></th>
-      <th><%= sort_link @search, :tasa_retencion_segundo_ano %></th>
+      <!-- <th><%= sort_link @search, :tasa_retencion_segundo_ano %></th> -->
       <th><%= sort_link @search, :n_titulados %></th>
       <th><%= sort_link @search, :duracion_esperada %> </th>
       <th><%= sort_link @search, :duracion_real %> </th>
@@ -45,8 +53,8 @@
   <% @careers.each do |career| %>
     <tr class="<%= cycle("even", "odd") %>">
       <!-- <td><%= career.tipo_institucion %></td> -->
-      <!-- <td><%= career.carrera %></td> -->
       <td><%= career.institucion.titleize %></td>
+      <td><%= career.carrera %></td>
       <!-- <td><%= career.areas_conocimiento %></td> -->
       <td><%= number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
       <td><%= number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
@@ -60,7 +68,7 @@
       <td><%= career.promedio_psu %></td>
       <td><%= number_with_delimiter(career.promedio_nem, :separator => ",") %></td>
       <td><%= number_to_percentage(career.tasa_retencion_primer_ano, :precision => 0) %></td>
-      <td><%= number_to_percentage(career.tasa_retencion_segundo_ano, :precision => 0) %></td>
+      <!--<td><%= number_to_percentage(career.tasa_retencion_segundo_ano, :precision => 0) %></td>-->
       <td><%= career.n_titulados %></td>
       <td><%= number_with_precision(career.duracion_esperada,:precision => 0) %></td>
       <td><%= career.duracion_real %></td>
