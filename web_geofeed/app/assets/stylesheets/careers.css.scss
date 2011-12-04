@@ -1,3 +1,31 @@
 // Place all the styles related to the careers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	margin: 0 0;
+	padding: 0 0;
+	font-size: 1.65em;
+	div#search, div#results{
+		float:left;
+	}
+	div#search {
+		padding: 1em;
+		width: 25%;
+		min-width: 200px;
+		max-width: 300px;
+		background: black;
+		height:1000px;
+		form {
+			label {
+				color:white;
+			}
+			input {
+				height: 1.65em;
+				padding: 0.3em 0.7em;
+			}
+			
+		}
+	}
+}
+

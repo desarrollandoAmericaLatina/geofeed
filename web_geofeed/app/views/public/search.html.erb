@@ -1,0 +1,17 @@
+<div id="search">
+  <%= form_for @search, :url => search_path, :html => {:method => :get} do |f| %>
+    <%= f.label :tipo_institucion_contains %>
+    <%= f.text_field :tipo_institucion_contains %><br />
+    <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel' %>
+    
+    <!-- etc... -->
+    <div id="range">
+      <input name="form_range" id="form_range" type="range" min="1" max="10" step=".5" value="5" > 
+      <input name="form_range" id="form_range" type="range" min="1" max="10" step=".5" value="5" > 
+    </div>
+    <%= f.submit "Buscar" %>
+  <% end %>  
+</div>
+<div id="results">
+  
+</div>

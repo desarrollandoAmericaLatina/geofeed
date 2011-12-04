@@ -1,6 +1,8 @@
 WebGeofeed::Application.routes.draw do
   resources :careers
 
+  match 'search' => 'public#search', :as => :search
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
