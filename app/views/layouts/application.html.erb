@@ -18,8 +18,26 @@
 $(document).ready(function() {
 
     $('table thead th[title]').qtip({
-       show: 'mouseover',
-       hide: 'mouseout'
+        position: {
+              corner: {
+                 target: 'bottomMiddle',
+                 tooltip: 'center'
+              }
+           },
+           style: { 
+                 width: 200,
+                 padding: 5,
+                 // background: '#A2D959',
+                 color: 'black',
+                 textAlign: 'center',
+                 border: {
+                    width: 7,
+                    radius: 5,
+                    // color: '#A2D959'
+                 },
+                 tip: 'topMiddle',
+                 name: 'green' // Inherit the rest of the attributes from the preset dark style
+              }
     })
     
 	/* This is basic - uses default settings */

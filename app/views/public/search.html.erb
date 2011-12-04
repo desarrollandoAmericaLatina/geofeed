@@ -65,17 +65,17 @@ $(function(){
   <table id="rounded-corner">
     <thead>
       <tr>
-        <th class="top-left"><%= sort_link @search, :institucion %></th>
+        <th class="top-left"><%= sort_link @search, :institucion, 'Institución' %></th>
         <th><%= sort_link @search, :carrera %></th>
-        <th title="asda"><%= sort_link @search, :empleabilidad_primer_ano%></th>
-        <th><%= sort_link @search, :empleabilidad_segundo_ano %></th>
-        <th><%= sort_link @search, :promedio_psu %></th>
-        <th><%= sort_link @search, :promedio_nem %></th>
-        <th><%= sort_link @search, :n_titulados %></th>
-        <th><%= sort_link @search, :duracion_esperada %> </th>
-        <th><%= sort_link @search, :duracion_real %> </th>
-        <th><%= sort_link @search, :promedio_arancel %></th>
-        <th><%= sort_link @search, :payback %></th>
+        <th title="Porcentaje de alumnos empleados al primer año de egreso"><%= sort_link @search, :empleabilidad_primer_ano, "Empleabilidad Primer Año"%></th>
+        <th title="Porcentaje de alumnos empleados al segundo año de egreso"><%= sort_link @search, :empleabilidad_segundo_ano, "Empleabilidad Segundo Año" %></th>
+        <th title="Promedio Puntaje Prueba Selección Univesitaria"><%= sort_link @search, :promedio_psu, "Promedio PSU" %></th>
+        <th title="Promedio Notas Enseñanza Media"><%= sort_link @search, :promedio_nem, "Promedio NEM" %> </th>
+        <th title="Cantidad de Titulados Anualmente"><%= sort_link @search, :n_titulados, "Número de Titulados" %></th>
+        <th title="Duración segun malla curricular"><%= sort_link @search, :duracion_esperada , "Duracion Esperada"%> </th>
+        <th title="Duracion Real"><%= sort_link @search, :duracion_real, "Duracion Real" %> </th>
+        <th title="Costo anual"><%= sort_link @search, :promedio_arancel, "Promedio Arancel" %></th>
+        <th title="Cantidad de años necesarios para pagar la carrera según la renta esperada"><%= sort_link @search, :payback %></th>
         <th class="top-right"> <%= link_to 'GeoFeed', '#geofeedimg' ,:class => 'fancy_box' %>
           <div style="display:none">
             <div id="geofeedimg">
