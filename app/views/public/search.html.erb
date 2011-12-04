@@ -55,7 +55,9 @@ $(function(){
   </div>
 
 
-  <%= f.submit "Buscar" , :style=>"height: 30px;"%>
+  <%= f.submit "Buscar" , :style=>"height: 30px;"%> 
+<br /><br />
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="Mi busqueda en #mediadecision <%= short_url(request.url.to_s) %>" data-count="vertical">Tweetea tu Busqueda</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
   <% end %>
 </div>
 <div id="results">
