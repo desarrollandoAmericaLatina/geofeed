@@ -6,6 +6,7 @@
   <%= javascript_include_tag "application" %>
   <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
   <script type="text/javascript" src="/fancybox/jquery.easing-1.3.pack.js"></script>
+  <script type="text/javascript" src="/jquery.qtip.js"></script> 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
   <%= csrf_meta_tags %>
 </head>
@@ -16,6 +17,11 @@
 
 $(document).ready(function() {
 
+    $('table thead th[title]').qtip({
+       show: 'mouseover',
+       hide: 'mouseout'
+    })
+    
 	/* This is basic - uses default settings */
 	
 	$("a.fancy_box").fancybox({
