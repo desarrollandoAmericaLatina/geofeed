@@ -47,8 +47,8 @@
       <!-- <td><%= career.carrera %></td> -->
       <td><%= career.institucion %></td>
       <!-- <td><%= career.areas_conocimiento %></td> -->
-      <td><%= career.empleabilidad_primer_ano %></td>
-      <td><%= career.empleabilidad_segundo_ano %></td>
+      <td><%= number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
+      <td><%= number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
       <!-- <td><%= career.region_mayor_numero_titulados %></td> -->
       <!-- <td><%= career.n_matriculados_primer_ano %></td> -->
       <!-- <td><%= career.n_matriculados_total %></td> -->
@@ -63,7 +63,7 @@
       <td><%= career.n_titulados %></td>
       <td><%= career.duracion_esperada %></td>
       <td><%= career.duracion_real %></td>
-      <td><%= career.promedio_arancel %></td>
+      <td><%= number_to_currency(career.promedio_arancel, :delimiter => ".", :precision => 0) %></td>
     </tr>
   <% end %>
   </table>
