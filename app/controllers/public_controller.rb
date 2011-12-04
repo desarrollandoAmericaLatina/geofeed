@@ -4,7 +4,7 @@ class PublicController < ApplicationController
 
   def search
        @tipos_instituciones = [] + Career.all.collect(&:tipo_institucion).uniq
-       @instituciones = [] + Career.all.collect{|c| c.institucion.truncate(39)}.uniq
+       @instituciones = [] + Career.all.collect{|c| c.institucion.truncate(32)}.uniq
        @carreras = [] + Career.all.collect{|c|c.carrera.truncate(43)}.uniq
        @search = Career.search(params[:search])
        @careers = @search.all.shift(10)
@@ -13,7 +13,7 @@ class PublicController < ApplicationController
        @map_feed_url = "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|"
        markers = ''
        @careers.each do |career|
-         markers += "#{career.direccion_casa_central}|"
+         markers += "#{career.direccion_casa_central},Chile|"
        end
        @map_feed_url += (markers + "&mobile=true&sensor=false")
        params[:search] ||= Hash.new

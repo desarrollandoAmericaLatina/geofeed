@@ -63,24 +63,12 @@ $(function(){
   <table id="rounded-corner">
     <thead>
       <tr>
-        <!-- <th>Tipo institucion</th> -->
-        <!-- <th>Carrera</th> -->
         <th class="top-left"><%= sort_link @search, :institucion %></th>
-        <!-- <th>Areas conocimiento</th> -->
         <th><%= sort_link @search, :carrera %></th>
         <th><%= sort_link @search, :empleabilidad_primer_ano %></th>
         <th><%= sort_link @search, :empleabilidad_segundo_ano %></th>
-        <!-- <th>Region mayor numero titulados</th> -->
-        <!-- <th>N matriculados primer ano</th> -->
-        <!-- <th>N matriculados total</th> -->
-        <!-- <th>Estudiantes municipales</th> -->
-        <!-- <th>Estudiantes particular subvencionado</th> -->
-        <!-- <th>Estudiantes particular pagado</th> -->
-        <!--<th><%= sort_link @search, :porcentaje_estudiantes_psu %></th>-->
         <th><%= sort_link @search, :promedio_psu %></th>
         <th><%= sort_link @search, :promedio_nem %></th>
-        <th><%= sort_link @search, :tasa_retencion_primer_ano %></th>
-        <!-- <th><%= sort_link @search, :tasa_retencion_segundo_ano %></th> -->
         <th><%= sort_link @search, :n_titulados %></th>
         <th><%= sort_link @search, :duracion_esperada %> </th>
         <th><%= sort_link @search, :duracion_real %> </th>
@@ -96,23 +84,12 @@ $(function(){
       </thead>
       <% @careers.each do |career| %>
       <tr class="<%= cycle("even", "odd") %>">
-        <!-- <td><%= career.tipo_institucion %></td> -->
         <td><%= career.institucion.titleize %></td>
         <td><%= career.carrera %></td>
-        <!-- <td><%= career.areas_conocimiento %></td> -->
         <td><%= number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
         <td><%= number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
-        <!-- <td><%= career.region_mayor_numero_titulados %></td> -->
-        <!-- <td><%= career.n_matriculados_primer_ano %></td> -->
-        <!-- <td><%= career.n_matriculados_total %></td> -->
-        <!-- <td><%= career.estudiantes_municipales %></td> -->
-        <!-- <td><%= career.estudiantes_particular_subvencionado %></td> -->
-        <!-- <td><%= career.estudiantes_particular_pagado %></td> -->
-        <!--<td><%= career.porcentaje_estudiantes_psu 	%></td>-->
         <td><%= career.promedio_psu %></td>
         <td><%= number_with_delimiter(career.promedio_nem, :separator => ",") %></td>
-        <td><%= number_to_percentage(career.tasa_retencion_primer_ano, :precision => 0) %></td>
-        <!--<td><%= number_to_percentage(career.tasa_retencion_segundo_ano, :precision => 0) %></td>-->
         <td><%= career.n_titulados %></td>
         <td><%= number_with_precision(career.duracion_esperada,:precision => 0) %></td>
         <td><%= career.duracion_real %></td>
@@ -121,7 +98,7 @@ $(function(){
         <td><%= link_to 'Mapa', "#geofeedrow#{career.id}", :class=> 'fancy_box' %>
           <div style="display:none">
             <div id="geofeedrow<%= career.id%>">
-              <%= image_tag "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|#{career.direccion_casa_central}&mobile=true&sensor=false"  %>
+              <%= image_tag "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|#{career.direccion_casa_central},Chile&mobile=true&sensor=false"  %>
             </div>
           </div>
 
