@@ -17,8 +17,8 @@ $(function(){
     current = $(this);
     current.next('span').text(current.val());
   });
-  
-  
+
+
 
 })
 
@@ -59,18 +59,18 @@ $(function(){
   </div>
 
 
-  <%= f.submit "Buscar" , :style=>"height: 30px;"%> 
+  <%= f.submit "Buscar" , :style=>"height: 30px;"%>
 <br /><br />
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="Mi busqueda en #mediadecision <%= short_url(request.url.to_s) %>" data-count="vertical">Tweetea tu Busqueda</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-<iframe src="//www.facebook.com/plugins/like.php?href=www.mediadecision.cl&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=271015616279725" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe> 
+<iframe src="//www.facebook.com/plugins/like.php?href=www.mediadecision.cl&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=271015616279725" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
 
  <% end %>
 </div>
 <div id="results">
   <% if @tip %>
   <div id="notice">
-    <p><strong>Tip:</strong> Puedes ordenar los resultados haciendo click sobre los títulos de cada columna</p> 
-  </div>  
+    <p><strong>Tip:</strong> Puedes ordenar los resultados haciendo click sobre los títulos de cada columna</p>
+  </div>
   <% end %>
 
   <table id="rounded-corner">
@@ -101,7 +101,7 @@ $(function(){
         <td><%= career.carrera %></td>
         <td><%= career.empleabilidad_primer_ano == 0? 'No hay datos' : number_to_percentage(career.empleabilidad_primer_ano, :precision => 0) %></td>
         <td><%= career.empleabilidad_segundo_ano == 0? 'No hay datos' : number_to_percentage(career.empleabilidad_segundo_ano, :precision => 0) %></td>
-        <td><%= career.promedio_psu %></td>
+        <td><%= career.promedio_psu ==0? 'No hay datos' : career.promedio_psu %></td>
         <td><%= number_with_delimiter(career.promedio_nem, :separator => ",") %></td>
         <td><%= career.n_titulados %></td>
         <td><%= number_with_precision(career.duracion_esperada,:precision => 0) %></td>
