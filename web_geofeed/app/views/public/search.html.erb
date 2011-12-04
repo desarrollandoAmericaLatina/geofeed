@@ -12,6 +12,12 @@ $(function(){
     }
     current.next('span').text(current.val());
   });
+
+  $('#search_promedio_psu_less_than').change(function(){
+    current = $(this);
+    current.next('span').text(current.val());
+  });
+
 })
 
 </script>
@@ -28,13 +34,23 @@ $(function(){
   <div class="range">
     <div>
       <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>@max_range.to_s} %>
-      <span><%= @search.promedio_arancel_greater_than %></span>
+      <span style="float:right; margin-right: 80px;margin-top:5px"><%= @search.promedio_arancel_greater_than %></span>
     </div>
     <div>
       <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>@max_range.to_s} %>
-      <span><%= @search.promedio_arancel_less_than %></span>
+      <span style="float:right; margin-right: 80px;margin-top:5px" ><%= @search.promedio_arancel_less_than %></span>
     </div>
   </div>
+
+  <%= f.label :promedio_psu_less_than, 'Puntaje PSU hasta:', :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;' %>
+  <div class="range">
+    <div>
+      <%= f.range_field :promedio_psu_less_than, {:min=>200,:max=>850} %>
+      <span style="float:right; margin-right: 80px;margin-top:5px" ><%= @search.promedio_psu_less_than %></span>
+    </div>
+  </div>
+
+
   <%= f.submit "Buscar"%>
   <% end %>  
 </div>
@@ -56,7 +72,7 @@ $(function(){
         <!-- <th>Estudiantes municipales</th> -->
         <!-- <th>Estudiantes particular subvencionado</th> -->
         <!-- <th>Estudiantes particular pagado</th> -->
-        <th><%= sort_link @search, :porcentaje_estudiantes_psu %></th>
+        <!--<th><%= sort_link @search, :porcentaje_estudiantes_psu %></th>-->
         <th><%= sort_link @search, :promedio_psu %></th>
         <th><%= sort_link @search, :promedio_nem %></th>
         <th><%= sort_link @search, :tasa_retencion_primer_ano %></th>
@@ -87,7 +103,7 @@ $(function(){
         <!-- <td><%= career.estudiantes_municipales %></td> -->
         <!-- <td><%= career.estudiantes_particular_subvencionado %></td> -->
         <!-- <td><%= career.estudiantes_particular_pagado %></td> -->
-        <td><%= career.porcentaje_estudiantes_psu 	%></td>
+        <!--<td><%= career.porcentaje_estudiantes_psu 	%></td>-->
         <td><%= career.promedio_psu %></td>
         <td><%= number_with_delimiter(career.promedio_nem, :separator => ",") %></td>
         <td><%= number_to_percentage(career.tasa_retencion_primer_ano, :precision => 0) %></td>

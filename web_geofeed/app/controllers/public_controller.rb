@@ -17,6 +17,7 @@ class PublicController < ApplicationController
        params[:search] ||= Hash.new
        @search.promedio_arancel_greater_than ||= @min_range
        @search.promedio_arancel_less_than ||= @max_range
+       @search.promedio_psu_less_than ||= 850
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @careers }
