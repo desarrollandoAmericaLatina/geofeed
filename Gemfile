@@ -10,7 +10,7 @@ gem "meta_search"#, :git => "git://github.com/ernie/meta_search.git" # Track git
 gem 'fastercsv'
 
 group :production do
- gem 'activerecord-postgresql-adapter'
+ gem 'pg'
 end
 
 # Gems used only for assets and not required
