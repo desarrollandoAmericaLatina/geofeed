@@ -14,59 +14,63 @@
   <% end %>  
 </div>
 <div id="results">
-  <h1>Listing careers</h1>
-    <ul>
-      <!-- <li>Tipo institucion</li> -->
-      <!-- <li>Carrera</li> -->
-      <li>Institucion</li>
-      <!-- <li>Areas conocimiento</li> -->
-      <li>Empleabilidad primer ano</li>
-      <li>Empleabilidad segundo ano</li>
-      <li>Region mayor numero titulados</li>
-      <li>N matriculados primer ano</li>
-      <li>N matriculados total</li>
-      <!-- <li>Estudiantes municipales</li> -->
-      <!-- <li>Estudiantes particular subvencionado</li> -->
-      <li>Estudiantes particular pagado</li>
-      <li>Porcentaje estudiantes psu</li>
-      <li>Promedio psu</li>
-      <li>Promedio nem</li>
-      <li>Tasa retencion primer ano</li>
-      <li>Tasa retencion segundo ano</li>
-      <li>N titulados</li>
-      <li>Duracion esperada</li>
-      <li>Duracion real</li>
-      <li>Promedio arancel</li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
+  <h1></h1>
+
+  <table id="rounded-corner">
+    <tr>
+      <!-- <th>Tipo institucion</th> -->
+      <!-- <th>Carrera</th> -->
+      <th>Institucion</th>
+      <!-- <th>Areas conocimiento</th> -->
+      <th>Empleabilidad primer ano</th>
+      <th>Empleabilidad segundo ano</th>
+      <!-- <th>Region mayor numero titulados</th> -->
+      <!-- <th>N matriculados primer ano</th> -->
+      <!-- <th>N matriculados total</th> -->
+      <!-- <th>Estudiantes municipales</th> -->
+      <!-- <th>Estudiantes particular subvencionado</th> -->
+      <!-- <th>Estudiantes particular pagado</th> -->
+      <th>Porcentaje estudiantes psu</th>
+      <th>Promedio psu</th>
+      <th>Promedio nem</th>
+      <th>Tasa retencion primer ano</th>
+      <th>Tasa retencion segundo ano</th>
+      <th>N titulados</th>
+      <th>Duracion esperada</th>
+      <th>Duracion real</th>
+      <th>Promedio arancel</th>
+    </tr>
 
   <% @careers.each do |career| %>
-    <ul>
-      <!-- <li><%= career.tipo_institucion %></li> -->
-      <!-- <li><%= career.carrera %></li> -->
-      <li><%= career.institucion %></li>
-      <!-- <li><%= career.areas_conocimiento %></li> -->
-      <li><%= career.empleabilidad_primer_ano %></li>
-      <li><%= career.empleabilidad_segundo_ano %></li>
-      <li><%= career.region_mayor_numero_titulados %></li>
-      <li><%= career.n_matriculados_primer_ano %></li>
-      <li><%= career.n_matriculados_total %></li>
-      <!-- <li><%= career.estudiantes_municipales %></li> -->
-      <!-- <li><%= career.estudiantes_particular_subvencionado %></li> -->
-      <li><%= career.estudiantes_particular_pagado %></li>
-      <li><%= career.porcentaje_estudiantes_psu %></li>
-      <li><%= career.promedio_psu %></li>
-      <li><%= career.promedio_nem %></li>
-      <li><%= career.tasa_retencion_primer_ano %></li>
-      <li><%= career.tasa_retencion_segundo_ano %></li>
-      <li><%= career.n_titulados %></li>
-      <li><%= career.duracion_esperada %></li>
-      <li><%= career.duracion_real %></li>
-      <li><%= career.promedio_arancel %></li>
-      
-    </ul>
+    <tr class="<%= cycle("even", "odd") %>">
+      <!-- <td><%= career.tipo_institucion %></td> -->
+      <!-- <td><%= career.carrera %></td> -->
+      <td><%= career.institucion %></td>
+      <!-- <td><%= career.areas_conocimiento %></td> -->
+      <td><%= career.empleabilidad_primer_ano %></td>
+      <td><%= career.empleabilidad_segundo_ano %></td>
+      <!-- <td><%= career.region_mayor_numero_titulados %></td> -->
+      <!-- <td><%= career.n_matriculados_primer_ano %></td> -->
+      <!-- <td><%= career.n_matriculados_total %></td> -->
+      <!-- <td><%= career.estudiantes_municipales %></td> -->
+      <!-- <td><%= career.estudiantes_particular_subvencionado %></td> -->
+      <!-- <td><%= career.estudiantes_particular_pagado %></td> -->
+      <td><%= career.porcentaje_estudiantes_psu %></td>
+      <td><%= career.promedio_psu %></td>
+      <td><%= career.promedio_nem %></td>
+      <td><%= career.tasa_retencion_primer_ano %></td>
+      <td><%= career.tasa_retencion_segundo_ano %></td>
+      <td><%= career.n_titulados %></td>
+      <td><%= career.duracion_esperada %></td>
+      <td><%= career.duracion_real %></td>
+      <td><%= career.promedio_arancel %></td>
+    </tr>
   <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Career', new_career_path %>
+  
 
 </div>
