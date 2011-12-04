@@ -7,8 +7,8 @@
     <!-- etc... -->
     <%= f.label :promedio_arancel_greater_than, 'Promedio Arancel' %>
     <div class="range">
-      <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>1000} %>
-      <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>1000} %><br />
+      <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>5000000} %>
+      <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>5000000} %><br />
     </div>
     <%= f.submit "Buscar" %>
   <% end %>  
