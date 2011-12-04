@@ -1,5 +1,5 @@
 <div id="search">
-  <%= form_for @search, :url => search_path, :html => {:meliod => :get} do |f| %>
+  <%= form_for @search, :url => search_path, :html => {:method => :get} do |f| %>
     <%= f.label :tipo_institucion_contains , :style => 'color: black; margin-top: 1em; margin-bottom:1em; display: block;'%>
     <%= f.text_field :tipo_institucion_contains %><br />
     
@@ -10,11 +10,11 @@
     <div class="range">
       <div>
       <%= f.range_field :promedio_arancel_greater_than, {:min=>0,:max=>@max_range.to_s,:onchange=>'$("#arancel_gt_label").val(this.value);'} %>
-      <input type="text" disabled="true" value="" id="arancel_gt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt"/>
+      <input type="text" disabled="true" value="<%= params[:search][:promedio_arancel_greater_than]%>" id="arancel_gt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt"/>
       </div>
       <div>
       <%= f.range_field :promedio_arancel_less_than, {:min=>0,:max=>@max_range.to_s,:onchange=>'$("#arancel_lt_label").val(this.value);'} %>
-      <input type="text" disabled="true" value="" id="arancel_lt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt" />
+      <input type="text" disabled="true" value="<%= params[:search][:promedio_arancel_less_than]%>" id="arancel_lt_label" style="float:right;width:80px; font-size: 10pt ; height: 12pt" />
       </div>
     </div>
     <%= f.submit "Buscar", :style=>"clear:both; margin-right: 200px;margin-top:20px; height: 24pt;" %>
