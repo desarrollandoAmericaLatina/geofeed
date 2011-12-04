@@ -55,9 +55,6 @@ namespace :db do
       i = 1
       while(arancel*c.duracion_esperada>renta && i < 20) do
          a = arancel*c.duracion_esperada
-         Rails.logger.debug "a = #{a}"
-
-         Rails.logger.debug "r = #{renta}"
          if i == 1
            tasa = tasa1
          else

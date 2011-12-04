@@ -8,7 +8,6 @@ class PublicController < ApplicationController
        @carreras = [] + Career.all.collect{|c|c.carrera.truncate(43)}.uniq
        @search = Career.search(params[:search])
        @careers = @search.all.shift(10)
-       Rails.logger.info "#{@careers.count} carreras encontradas..."
        @max_range = Career.maximum("promedio_arancel")
        @min_range = Career.minimum("promedio_arancel")
        @map_feed_url = "http://maps.google.com/maps/api/staticmap?size=512x512&markers=size:mid|color:red|"
